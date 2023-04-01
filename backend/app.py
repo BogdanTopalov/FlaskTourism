@@ -1,15 +1,14 @@
-from os import environ
-
 from flask import Flask
 from flask_migrate import Migrate
 from flask_restful import Api
 
+from constants import CONFIG
 from db import db
 from routes import routes
 
 
 app = Flask(__name__)
-app.config.from_object(environ.get('CONFIG_OBJECT'))
+app.config.from_object(CONFIG['CONFIG_OBJECT'])
 
 migrate = Migrate(app, db)
 api = Api(app)

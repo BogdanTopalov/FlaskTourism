@@ -1,7 +1,9 @@
-from os import environ
+from dotenv import dotenv_values
 
 
-DB_USER = environ.get('DB_USER')
-DB_PASSWORD = environ.get('DB_PASS')
-DB_NAME = environ.get('DB_NAME')
-DB_PORT = environ.get('DB_PORT')
+CONFIG = dotenv_values('.env')
+
+DB_USER = CONFIG['DB_USER']
+DB_PASSWORD = CONFIG['DB_PASS']
+DB_NAME = CONFIG['DB_NAME']
+DB_PORT = CONFIG['DB_PORT']

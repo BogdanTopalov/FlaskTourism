@@ -13,3 +13,4 @@ class User(db.Model):
         default=RoleType.regular,
         nullable=False
     )
+    reservations = db.relationship('Reservation', backref='user')

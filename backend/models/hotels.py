@@ -16,3 +16,4 @@ class Hotel(db.Model):
         default=datetime.utcnow(),
         nullable=False
     )
+    reservations = db.relationship('Reservation', backref='hotel')

@@ -1,4 +1,4 @@
-from resources.auth import RegisterResource, LoginResource
+from resources.auth import RegisterResource, LoginResource, UserDetailsResource
 from resources.hotels import GetAllHotelsResource, AddHotelResource,\
     GetHotelResource, UpdateHotelResource, DeleteHotelResource
 from resources.reservations import CreateReservationResource, GetAllReservationsResource
@@ -6,6 +6,7 @@ from resources.reservations import CreateReservationResource, GetAllReservations
 routes = (
     (RegisterResource, '/register'),
     (LoginResource, '/login'),
+    (UserDetailsResource, '/user'),
     (GetAllHotelsResource, '/hotels'),
     (AddHotelResource, '/hotels/add'),
     (GetHotelResource, '/hotels/<int:pk>'),

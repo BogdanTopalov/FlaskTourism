@@ -4,7 +4,7 @@ from flask_restful import Resource
 from helpers.decorators import validate_schema, permission_required
 from managers.auth_manager import auth
 from managers.hotel_manager import HotelManager
-from models import RoleType
+from models.enums import RoleType
 from schemas.request.hotels import HotelsRequestSchema
 from schemas.response.hotels import HotelResponseSchema
 

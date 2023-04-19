@@ -1,4 +1,4 @@
-from marshmallow import fields, validate
+from marshmallow import fields, validate, Schema
 
 from schemas.base import UserRequestBaseSchema
 
@@ -20,3 +20,7 @@ class UserRegisterSchema(UserRequestBaseSchema):
 
 class UserLoginSchema(UserRequestBaseSchema):
     pass
+
+
+class UserDetailsRequestSchema(Schema):
+    token = fields.Str(required=True)

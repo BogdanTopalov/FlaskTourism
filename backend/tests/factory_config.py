@@ -3,7 +3,8 @@ from datetime import datetime
 import factory
 
 from db import db
-from models import User, RoleType, Hotel
+from models import User, Hotel, Reservation
+from models.enums import RoleType, Status
 
 
 class BaseFactory(factory.Factory):
@@ -41,3 +42,14 @@ class HotelFactory(BaseFactory):
     image_url = factory.Faker('image_url')
     price_per_night = 100.0
     added_on = datetime.utcnow()
+
+
+class ReservationFactory(BaseFactory):
+    class Meta:
+        model = Reservation
+
+    id = factory.Sequence(lambda x: x)
+    status = Status.pending
+    created_on = datetime.utcnow()
+    user_id = 0
+    hotel_id = 0

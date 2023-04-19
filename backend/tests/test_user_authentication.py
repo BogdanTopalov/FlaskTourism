@@ -1,6 +1,6 @@
 import json
 
-from tests.base import BaseTestClass
+from tests.base import BaseTestClass, generate_token
 from tests.factory_config import UserFactory
 
 
@@ -239,3 +239,39 @@ class TestUserAuthentication(BaseTestClass):
 
         self.assertTrue(result.status_code == 400)
         self.assertTrue(result.json['message'] == 'Invalid credentials')
+
+    def test_user_details_with_valid_token(self):
+        user = UserFactory()
+        token = generate_token(user)
+
+        result = self.client.post(
+            '/user',
+            headers={
+                "Content-Type": "application/json",
+            },
+            data=json.dumps({
+                "token": token
+            })
+        )
+
+        self.assertTrue(result.status_code == 200)
+        self.assertTrue(result.json['id'] == user.id)
+        self.assertTrue(result.json['first_name'] == user.first_name)
+        self.assertTrue(result.json['last_name'] == user.last_name)
+        self.assertTrue(result.json['email'] == user.email)
+
+    def test_user_details_with_invalid_token(self):
+        user = UserFactory()
+
+        result = self.client.post(
+            '/user',
+            headers={
+                "Content-Type": "application/json",
+            },
+            data=json.dumps({
+                "token": "123"
+            })
+        )
+
+        self.assertTrue(result.status_code == 401)
+        self.assertTrue(result.json['message'] == 'Token can not be verified')

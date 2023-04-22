@@ -3,7 +3,6 @@ import re
 from marshmallow import Schema, fields, validates, ValidationError, validate
 
 from models import Status
-from models.enums import RoleType
 
 
 class UserRequestBaseSchema(Schema):
@@ -32,11 +31,12 @@ class HotelBaseSchema(Schema):
     country = fields.Str(required=True, validate=validate.Length(min=2, max=50))
     city = fields.Str(required=True, validate=validate.Length(min=2, max=50))
     image_url = fields.Str(required=True)
-    price_per_night = fields.Float(required=True)
+    price_per_night = fields.Int(required=True)
 
 
 class ReservationBaseSchema(Schema):
     status = fields.Enum(Status)
-    created_on = fields.DateTime()
-    user_id = fields.Int()
+    nights = fields.Int(required=True)
+    created_on = fields.DateTime(required=True)
+    user_id = fields.Int(required=True)
     hotel_id = fields.Int(required=True)

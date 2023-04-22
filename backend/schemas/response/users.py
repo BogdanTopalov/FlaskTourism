@@ -3,7 +3,7 @@ from marshmallow import Schema, fields
 from models.enums import RoleType
 
 
-class UserResponseSchema(Schema):
+class UserLoginResponseSchema(Schema):
     token = fields.Str(required=True)
 
 

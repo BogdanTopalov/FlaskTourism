@@ -49,6 +49,7 @@ class ReservationFactory(BaseFactory):
         model = Reservation
 
     id = factory.Sequence(lambda x: x)
+    nights = 3
     status = Status.pending
     created_on = datetime.utcnow()
     user_id = 0

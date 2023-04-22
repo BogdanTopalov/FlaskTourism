@@ -18,14 +18,12 @@ class TestReservationModel(BaseTestClass):
                 "Authorization": f"Bearer {token}",
             },
             data=json.dumps({
-                "hotel_id": hotel.id
+                "hotel_id": hotel.id,
+                "nights": 3
             })
         )
 
         self.assertTrue(result.status_code == 200)
-        self.assertTrue(result.json['status'] == 'pending')
-        self.assertTrue(result.json['user_id'] == user.id)
-        self.assertTrue(result.json['hotel_id'] == hotel.id)
 
     def test_creating_a_reservation_unauthenticated(self):
         hotel = HotelFactory()

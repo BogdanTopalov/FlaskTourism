@@ -33,53 +33,53 @@
     ```
 - /hotels/add
   * Request: 
-  ```
-  {
-    "country": "...",
-    "name": "...",
-    "stars": ...,
-    "price_per_night": ..., 
-    "city": "...",
-    "image_url": "..."
-  }
-  ```
+    ```
+    {
+      "country": "...",
+      "name": "...",
+      "stars": ...,
+      "price_per_night": ..., 
+      "city": "...",
+      "image_url": "..."
+    }
+    ```
   * Response: `same as Request`
 - /hotels/:id
   * Request: `no body`
   * Response: 
-  ```
-  {
-    "country": "...",
-    "name": "...",
-    "stars": ...,
-    "price_per_night": ..., 
-    "city": "...",
-    "image_url": "..."
-  }
-  ```
+    ```
+    {
+      "country": "...",
+      "name": "...",
+      "stars": ...,
+      "price_per_night": ..., 
+      "city": "...",
+      "image_url": "..."
+    }
+    ```
 - /hotels/update/:id
   * Request:
-  ```
-  {
-    "country": "...",
-    "name": "...",
-    "stars": ...,
-    "price_per_night": ..., 
-    "city": "...",
-    "image_url": "..."
-  }
-  ```
+    ```
+    {
+      "country": "...",
+      "name": "...",
+      "stars": ...,
+      "price_per_night": ..., 
+      "city": "...",
+      "image_url": "..."
+    }
+    ```
   * Response:
-  ```
-  {
-    "country": "...",
-    "name": "...",
-    "stars": ...,
-    "price_per_night": ..., 
-    "city": "...",
-    "image_url": "..."
-  }
-  ```
+    ```
+    {
+      "country": "...",
+      "name": "...",
+      "stars": ...,
+      "price_per_night": ..., 
+      "city": "...",
+      "image_url": "..."
+    }
+    ```
 - /hotels/delete/:id
   * Request: `no body`
   * Response: `{"message": "Hotel deleted successfully"}`
@@ -98,19 +98,19 @@
     ```
 - /reservations/create
   * Request:
-  ```
-  {
-    "hotel_id": ...,
-    "nights": ...
-  }
-  ```
+    ```
+    {
+      "hotel_id": ...,
+      "nights": ...
+    }
+    ```
   * Response:
-  ```
-  {
-    "clientSecret": "...",
-    "reservation_id": ...
-  }
-  ```
+    ```
+    {
+      "clientSecret": "...",
+      "reservation_id": ...
+    }
+    ```
 - /reservations/update/:id
   * Request: `no body`
   * Response: `{"message": "Reservation updated successfully"}`

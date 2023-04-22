@@ -13,7 +13,7 @@ class CreateReservationResource(Resource):
     def post(self):
         data = request.get_json()
         reservation = ReservationManager.create_reservation(data)
-        return ReservationResponseSchema().dump(reservation)
+        return reservation
 
 
 class GetAllReservationsResource(Resource):
@@ -22,3 +22,11 @@ class GetAllReservationsResource(Resource):
     def get(self):
         all_reservations = ReservationManager.get_all_reservations()
         return ReservationResponseSchema(many=True).dump(all_reservations)
+
+
+class UpdateReservationResource(Resource):
+    @auth.login_required
+    @permission_required(RoleType.admin)
+    def put(self, pk):
+        reservation = ReservationManager.update_reservation(pk)
+        return reservation

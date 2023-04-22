@@ -1,3 +1,4 @@
+import stripe
 from decouple import config
 from flask import Flask
 from flask_cors import CORS
@@ -6,7 +7,6 @@ from flask_restful import Api
 
 from db import db
 from routes import routes
-
 
 DB_USER = config('DB_USER')
 DB_PASSWORD = config('DB_PASS')
@@ -41,6 +41,7 @@ def create_app(config_object):
     migrate = Migrate(app, db)
     api = Api(app)
     CORS(app)
+    stripe.api_key = config('STRIPE_KEY')
 
     [api.add_resource(*route) for route in routes]
 

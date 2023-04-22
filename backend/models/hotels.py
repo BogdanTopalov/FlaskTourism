@@ -10,7 +10,7 @@ class Hotel(db.Model):
     country = db.Column(db.String(50), nullable=False)
     city = db.Column(db.String(50), nullable=False)
     image_url = db.Column(db.String(255), nullable=False)
-    price_per_night = db.Column(db.Float, nullable=False)
+    price_per_night = db.Column(db.Integer, nullable=False)
     added_on = db.Column(
         db.DateTime,
         default=datetime.utcnow(),

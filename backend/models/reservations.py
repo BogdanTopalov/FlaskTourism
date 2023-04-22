@@ -6,6 +6,7 @@ from models.enums import Status
 
 class Reservation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    nights = db.Column(db.Integer, nullable=False)
     status = db.Column(
         db.Enum(Status),
         default=Status.pending,

@@ -1,0 +1,30 @@
+.top {
+	padding: 2rem 6rem;
+	width: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 1;
+	bottom: 0;
+	font-size: xx-large;
+}
+
+.top a {
+	text-decoration: none;
+	color: #F2E3DB;
+}
+
+.top div {
+    display: flex;
+    gap: 1rem;
+	color: #F2E3DB;
+}
+
+.reservations a{
+	position: absolute;
+	margin: 2rem 6rem;
+	font-size: xx-large;
+	text-decoration: none;
+	color: #F2E3DB;
+}
